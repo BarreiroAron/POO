@@ -1,0 +1,32 @@
+Para cada situación se pide:
+Indicar datos de entrada, datos de salida, nombre y tipo de variables, operaciones y condiciones que hay que considerar. Luego escribir un algoritmo en pseudocódigo para cada situación.
+Enviar un mensaje de texto o whatsApp desde el teléfono celular. Se deberá verificar que haya crédito o servicio de Wifi para poder realizar la operación, según corresponda.
+Para ingresar a un curso de capacitación se solicita a los empleados aprobar dos exámenes. Ingresarán aquellos que hayan logrado como mínimo 7 y 8 puntos respectivamente. Se deberá mostrar en pantalla la palabra “Apto” o “No apto”.
+Se ingresa el sueldo de un trabajador y se aplica un aumento del 15% si su sueldo es inferior a $8.000 y 12% en caso contrario. Luego, mostrar el nuevo sueldo del trabajador.
+__________________________________________________________________________________________________________
+
+Resuelva mediante algoritmos gráficos,pseudocódigo y luego en lenguaje C  los siguientes problemas:
+Hallar tres números consecutivos cuya suma sea 87.
+Calcular la media (promedio) de 3 números
+Determinar si un valor numérico positivo, mayor que cero ingresado es par o impar.
+Dado como entrada las notas de 4 pruebas de un alumno  y la nota de tarea, se pide determinar si el alumno aprobó o no  la materia (se aprueba con 6). 
+Dada una nota escriba “Aprobado” ó “Reprobado” según la nota ingresada, pero además si la nota de aprobación es mayor o igual a 8, escriba .felicitaciones. y si la nota es 1, escriba “Debes esforzarte más”.
+Dado un alquiler, se pide determinar  cuánto paga en impuesto por concepto de alquiler, considerando la siguiente escala de cobro:  sueldo <= 202	 →0% impuesto,  202 < sueldo <= 607 → 5%,  607 < sueldo <= 1.013 →10%, 1.013 < sueldo <= 1.418 →15%, 1.418 < sueldo → 25%
+Dada como entrada una hora en formato hh:mm, [24], genere como salida la misma hora pero en formato hh:mm [am/pm]
+Suponga que un individuo desea invertir su capital en un banco y desea saber ¿Cuánto dinero ahorra después de un mes, si el banco paga a razón de 2% mensual?
+Una persona tiene 50 años, y su hijo 20.  ¿Dentro de cuántos años la edad del padre será el doble que la de su hijo?
+Convierta a horas minutos y segundos un tiempo expresado en segundos
+Un alumno desea saber cuál será su calificación final, dicha calificación se compone de los siguientes porcentajes:
+55% 		del promedio final de sus calificaciones (de sus  3 evaluaciones parciales)
+30% 		de la calificación de promedio
+15% 		de la calificación de un trabajo final
+Un vendedor recibe un sueldo base más un 10 % extra por comisión de sus ventas, el vendedor desea saber cuánto dinero obtendrá por concepto de comisiones por las tres ventas que realiza en el mes, y el total que recibirá en el mes
+Una tienda ofrece un descuento del 15% sobre el total de la compra, y un cliente desea saber cuánto deberá pagar finalmente por su compra.
+Generar el valor absoluto de un número dado como entrada.
+Valor absoluto o módulo1 de un número real es su valor numérico sin tener en cuenta su signo, sea este positivo (+) o negativo (-). Así, por ejemplo, 3 es el valor absoluto de +3 y de -3.
+El valor absoluto está relacionado con las nociones de magnitud, distancia y norma en diferentes contextos matemáticos y físicos.
+Un maestro desea saber qué porcentaje de hombres y que porcentaje de mujeres hay en un grupo de estudiantes.
+Dada una cantidad en pesos argentinos, obtener la equivalencia en dólares estadounidenses, asumiendo que la unidad cambiaría es un dato desconocido.
+Calcular la FCM para cualquier persona, sabiendo que ésta es la fórmula de la Frecuencia cardíaca máxima por géneros: 
+Para hombres FCmax = ((210 – (0,5 * edad en años)) – 1% del peso) + 4
+Para mujeres FCmax = (210 – (0,5 * edad en años)) - 1% del peso
