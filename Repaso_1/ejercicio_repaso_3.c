@@ -6,7 +6,7 @@ int main(int argc, char *argv[]) {
   int calificacion;
   puts("Ingrese 3 notas de los parciales");
   for(int i = 1; i < 3; i++) {
-    scanf("%d\n", &parcial);
+    scanf("%d", &parcial);
     parciales = parciales + parcial;
   }
   /*
