@@ -7,4 +7,5 @@ if(nota >= 6) { printf("aprobado\n"); } else {
 printf("desaprobado\n"); }
 if(nota == 1) printf("Esforzarte mas\n");
 if(nota >= 8) printf("felicitaciones\n");
+  return 0;
 }
