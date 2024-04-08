@@ -9,8 +9,8 @@
   scanf("%d", &mm);
  
   if(hh >= 13) {
-  printf("%d:%d\n", hh-12, mm);
- } else { printf("%d:%d\n", hh, mm);
+  printf("%d:%dpm\n", hh-12, mm);
+ } else { printf("%d:%dam\n", hh, mm);
  }
   return 0;
  }
