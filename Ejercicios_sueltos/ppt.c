@@ -8,7 +8,7 @@ int main() {
     int contadorUsuario = 0, contadorPC = 0; //Creo otras 2 variables que van a ir contando los puntos en las rondas
     int usuarioPPT, pcPPT; //Creo otras 2 variables que van a ir almacenando el numero elegido por el usuario y la computdora para competir
     
-    srand(time(NULL)); //Inicia el rand 
+    srand(time(NULL)); //Inicia el rand
     puts("Juguemos piedra papel o tijera!!");
     puts("No hagas tonterias o me llevo un punto. . .");
     puts("5 de 3, que gane el mejor\n");
@@ -19,6 +19,11 @@ int main() {
         scanf("%d", &usuarioPPT);  //Agrego un scanf que va a ser el valor que ingrese el usuario para competir
         pcPPT = rand() % 3; //La variable pcPPT la asgino como un numero al azar que sea hasta 3
         printf("Vos: %d   VS   PC: %d\n", usuarioPPT, pcPPT); 
+        
+        if(usuarioPPT != 0 && usuarioPPT != 1 && usuarioPPT !=2){ //Creo una condicion que nos va a servir en caso de que se ingrese un numero invalido no va a sumar puntos a ningun jugador
+            printf("Ingrese un valor valido >:v \n"); 
+            puntosPC--;
+        }
         
         if(usuarioPPT == pcPPT) { //Creo un condicional en caso de empate
             puts("Empate! Esta jugada se repite \n");
