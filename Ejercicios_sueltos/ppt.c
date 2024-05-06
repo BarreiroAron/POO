@@ -8,7 +8,7 @@ int main() {
     int contadorUsuario = 0, contadorPC = 0; //Creo otras 2 variables que van a ir contando los puntos en las rondas
     int usuarioPPT, pcPPT; //Creo otras 2 variables que van a ir almacenando el numero elegido por el usuario y la computdora para competir
     
-    srand(time(NULL)); //Inicia el rand
+    srand(time(NULL)); //Inicia el rand 
     puts("Juguemos piedra papel o tijera!!");
     puts("No hagas tonterias o me llevo un punto. . .");
     puts("5 de 3, que gane el mejor\n");
