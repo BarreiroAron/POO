@@ -11,12 +11,14 @@ int main() {
     srand(time(NULL)); //Inicia el rand
     puts("Juguemos piedra papel o tijera!!");
     puts("No hagas tonterias o me llevo un punto. . .");
-    puts("5 de 3, el que gana saca y el que pierde elige arco\n");
+    puts("5 de 3, que gane el mejor\n");
+    puts("Se juega con: piedra(0), papel(1), tijera(2)\n");
+    puts("Ingrese alguno de los objetos para el juego que sean permitidos para empezar");
     
     while(contadorUsuario < 3 || contadorPC < 3) { //Creo un loop para las rondas que son menores a 3 van a cumplir las siguientes condiciones
         scanf("%d", &usuarioPPT);  //Agrego un scanf que va a ser el valor que ingrese el usuario para competir
         pcPPT = rand() % 3; //La variable pcPPT la asgino como un numero al azar que sea hasta 3
-        printf("Vos: %d   VS   Pc: %d\n", usuarioPPT, pcPPT); 
+        printf("Vos: %d   VS   PC: %d\n", usuarioPPT, pcPPT); 
         
         if(usuarioPPT == pcPPT) { //Creo un condicional en caso de empate
             puts("Empate! Esta jugada se repite \n");
@@ -28,7 +30,7 @@ int main() {
             puntosPC++;
         }
         
-        printf("Juegos: Tu ganaste: %d, la pc gano %d por el momento.\n", puntosU, puntosPC);
+        printf("Juegos: Tu ganaste: %d, la pc gano %d por el momento.\n\n", puntosU, puntosPC);
         printf("Rondas: Tu ganaste: %d, la pc gano %d por el momento.\n\n", contadorUsuario, contadorPC);
         
         if(puntosU == 2) { //Creo un condicional en caso de que el usuario gane una ronda
@@ -43,6 +45,6 @@ int main() {
         if(contadorUsuario == 3) { printf("Ganaste!! \n\n"); break; } //Creo un penultimo condicional en caso de que el usuario gane las rondas totales y por ende el juego
         if(contadorPC== 3) { printf("Perdiste\n\n"); break; } //Creo una ultima condicion en caso de que la maquina gane las rondas totales y por ende el juego
     }
-    
+        printf("Tu ganaste %d rondas en total y la pc gano %d rondas en total\n\n", contadorUsuario, contadorPC);
     return 0;
 }
