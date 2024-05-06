@@ -20,7 +20,7 @@ int main() {
     int a[fila][columna];
     srand(time(NULL));
 
-    // iniciar la matriz
+    // iniciar la matriz e imprimirla
     for (int i = 0; i < fila; i++) {
         for (int j = 0; j < columna; j++) {
             // asignar "1" a los bordes de la matriz
@@ -29,16 +29,9 @@ int main() {
             } else {
                 a[i][j] = 0;  // asignar '0' al interior de la matriz
             }
-        }
-    }
-
-    // imprimir la matriz
-    for (int i = 0; i < fila; i++) {
-        for (int j = 0; j < columna; j++) {
             printf("%d ", a[i][j]);
         }
         printf("\n");
     }
-
     return 0;
 }
