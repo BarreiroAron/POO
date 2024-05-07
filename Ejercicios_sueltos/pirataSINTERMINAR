@@ -3,13 +3,13 @@
 #include <time.h>
 
 int main() {
-    int fila, columna;
+    int fila = 8, columna = 8;
     char T; //el tesoro del lugar
     char P; //el pirata pata palo
-    puts("Ingrese fila:");
-    scanf("%d", &fila);
-    puts("Ingrese columna:");
-    scanf("%d", &columna);
+ //   puts("Ingrese fila:");
+ //   scanf("%d", &fila);
+ //   puts("Ingrese columna:");
+ //   scanf("%d", &columna);
 
     //viendo si las dimensiones son positivas
     if (fila <= 0 || columna <= 0) {
@@ -17,19 +17,19 @@ int main() {
         return 1;
     }
 
-    int a[fila][columna];
+    char a[fila][columna];
     srand(time(NULL));
 
     // iniciar la matriz e imprimirla
     for (int i = 0; i < fila; i++) {
         for (int j = 0; j < columna; j++) {
-            // asignar "1" a los bordes de la matriz
+            // asignar "o" a los bordes de la matriz
             if (i == 0 || i == fila - 1 || j == 0 || j == columna - 1) {
-                a[i][j] = 1;
+                a[i][j] = 'o';
             } else {
-                a[i][j] = 0;  // asignar '0' al interior de la matriz
+                a[i][j] = 'x';  // asignar 'o' al interior de la matriz
             }
-            printf("%d ", a[i][j]);
+            printf("%c ", a[i][j]);
         }
         printf("\n");
     }
