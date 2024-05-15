@@ -76,12 +76,14 @@ int main() {
                 a[tf][tc] = 'x';
                 }
             }
+            a[0][l - 1] = '-';//se crean los puentes
+            a[l - 1][0] = '-';
              //Agrego un printf que nos va a imprimir los 'O' en los bordes y  las 'X', 'P' y 'T' en el interior de la matriz
             printf("%c ", a[i][j]);
         }
         printf("\n");
     }
-
+    //Creo un for que nos va a indicar que si la posicion del pirata es igual a la del tesoro al iniciar el juego, nos diga que ya ganamos
     if(a[pf][pc] == a[tf][tc]){
                     puts("Encontraste el tesoro sin moverte. ¡Que suerte que tenes!");
                     return 0;
@@ -89,6 +91,7 @@ int main() {
 
  //Creo un while que nos va a hacer funcionar el juego, que tiene un limite de 50 movimientos
     while(intentos <= 50){
+        intentos++;
         printf("a donde te quieres mover:\n 1 es de Norte, 2 es de Sur, 3 es de Este y 4 es de Oeste:\n");
          //En este scanf el usuario va a moverse al norte, sur, este u oeste mediante la tecla que seleccione
         scanf("%d", &movimiento);
@@ -104,7 +107,7 @@ int main() {
             pf = pfn - 1;
             pc = pcn;
             if(a[pf][pc] == a[tf][tc]){
-                    puts("Encontraste el tesoro");
+                    printf("Encontraste el , en %d intentos", intentos);
                     return 0;
             }
         }
@@ -114,7 +117,7 @@ int main() {
             pf = pfn + 1;
             pc = pcn;
             if(a[pf][pc] == a[tf][tc]){
-                    puts("Encontraste el tesoro");
+                    printf("Encontraste el , en %d intentos", intentos);
                     return 0;
             }
         }
@@ -124,7 +127,7 @@ int main() {
             pf = pfn;
             pc = pcn - 1;
             if(a[pf][pc] == a[tf][tc]){
-                    puts("Encontraste el tesoro");
+                    printf("Encontraste el , en %d intentos", intentos);;
                     return 0;
             }
         }
@@ -134,27 +137,20 @@ int main() {
             pf = pfn;
             pc = pcn + 1;
             if(a[pf][pc] == a[tf][tc]){
-                    puts("Encontraste el tesoro");
+                    printf("Encontraste el , en %d intentos", intentos);
                     return 0;
             }
         } 
+        //Creo otra condicion que nos indica que si el movimiento es menor o igual a 0 nos indica que debemos ingresar tecla valida
         else if(movimiento <= 0) {
-        printf("El movimiento debe ser siempre el indicado anteriormente.\nEl juego se termina por querer romperl, juega normal");
+        printf("El movimiento debe ser siempre el indicado anteriormente.\nEl juego se termina por querer romperlo, juega normal");
         return 0;
     }
+    //Y agrego otra condicion que indica que si el numero es mayor o igual a 5, nos dara un mensaje de agregar una opcion correcta
     else if(movimiento >= 5){
-        printf("el numero debe ser el indicado");
+        printf("el numero debe ser el indicado\n");
     }
-
-            /*
-        Creo 2 for que van a imprimir la matriz actualizada segun el movimiento del pirata, y hasta que cumpla su objetivo
-        */ 
-             for (int i = 0; i < fila; i++) {
-        for (int j = 0; j < columna; j++) {
-            printf("%c ", a[i][j]);
-            }
-            printf("\n");
-
+     //Creo 4 if, que nos indican que si el pirata llega al agua, nos dara un mensaje de "agua" y se termina el juego
             if(pf == l - 1){
                 puts("agua");
                 return 0;
@@ -172,8 +168,17 @@ int main() {
                 return 0;
             }
 
+            /*
+        Creo 2 for que van a imprimir la matriz actualizada segun el movimiento del pirata, y hasta que cumpla su objetivo
+        */ 
+             for (int i = 0; i < fila; i++) {
+        for (int j = 0; j < columna; j++) {
+            printf("%c ", a[i][j]);
+            }
+            printf("\n");
+
         }
-        intentos++;
+        
     }
     return 0;
     
