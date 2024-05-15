@@ -30,6 +30,14 @@ int main() {
     //Creo una variable entera para los intentos posibles de los movimientos del pirata
     int intentos = 0;
 
+
+
+
+
+
+
+
+
     puts("Ingrese el espacio de su tablero: ");
      //El usuario ingresa un valor para el temeño de la matriz donde se va a jugar
     scanf("%d", &l);
@@ -56,9 +64,21 @@ int main() {
      tc=(rand()%(l - 2))+1;
        //Creo un numero aleatorio para la posicion de la fila del tesoro
      tf=(rand()%(l - 2))+1;
-     
-    // iniciar la a e imprimirla
+    
 
+
+
+
+
+
+
+
+
+
+
+
+
+       // iniciar la a e imprimirla
        //Creo un for para almacenar los valores de la fila
     for (int i = 0; i < fila; i++) {
         //Creo un for para almacenar los valores de la columna
@@ -83,11 +103,35 @@ int main() {
         }
         printf("\n");
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     //Creo un for que nos va a indicar que si la posicion del pirata es igual a la del tesoro al iniciar el juego, nos diga que ya ganamos
     if(a[pf][pc] == a[tf][tc]){
                     puts("Encontraste el tesoro sin moverte. ¡Que suerte que tenes!");
                     return 0;
                 }
+
+
+
+
+
+
+
+
+
+
+
+
 
  //Creo un while que nos va a hacer funcionar el juego, que tiene un limite de 50 movimientos
     while(intentos <= 50){
@@ -100,6 +144,16 @@ int main() {
         actualiza segun el movimiento del usuario*/
         int pfn = pf;
         int pcn = pc;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         //Creamos los movimientos los cuales se usan con: 1, 2 ,3 ,4
         if(movimiento == 1){
             a[pf - 1][pc] = 'P';
@@ -137,7 +191,7 @@ int main() {
             pf = pfn;
             pc = pcn + 1;
             if(a[pf][pc] == a[tf][tc]){
-                    printf("Encontraste el , en %d intentos", intentos);
+                    printf("Encontraste el Tesoro en %d intentos", intentos);
                     return 0;
             }
         } 
@@ -171,6 +225,13 @@ int main() {
             /*
         Creo 2 for que van a imprimir la matriz actualizada segun el movimiento del pirata, y hasta que cumpla su objetivo
         */ 
+        
+        
+        
+        
+        
+        
+        
              for (int i = 0; i < fila; i++) {
         for (int j = 0; j < columna; j++) {
             printf("%c ", a[i][j]);
@@ -180,6 +241,14 @@ int main() {
         }
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
     return 0;
     
 }
