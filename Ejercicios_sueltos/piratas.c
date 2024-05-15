@@ -26,6 +26,7 @@ int main() {
     //Creo una variable de entero para la columna donde esta el tesoro
     //Creo una variable de entero para la fila donde esta el tesoro
     int tf; 
+    int tc;
     //Creo una variable entera para los intentos posibles de los movimientos del pirata
     int intentos = 0;
 
