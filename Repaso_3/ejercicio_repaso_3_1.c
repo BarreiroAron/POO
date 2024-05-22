@@ -3,6 +3,7 @@
 
 int main(int argc, char *argv[]) {
     int uno, dos, tres, cuatro;
+    int a[4] = { uno, dos, tres, cuatro };
     puts("B I E N V E N I D O");
     puts("Ingrese cuatro numeros por favor!");
     scanf("%d %d %d %d", &uno, &dos, &tres, &cuatro);
