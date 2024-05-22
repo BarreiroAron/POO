@@ -17,7 +17,7 @@ int main() {
         }
         printf("\n");
     } else {
-        printf("Mes inválido. Introduce un número entre 1 y 12.\n");
+        printf("Solo existen meses entre 1 y 12.\n");
     }
     return 0;
 }
