@@ -5,7 +5,7 @@ int main() {
     int calendario[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     int mes;
 
-    printf("Introduce un mes (1=enero, 12=diciembre): ");
+    printf("Introduce un mes: ");
     scanf("%d", &mes);
 
     if (mes >= 1 && mes <= 12) {
