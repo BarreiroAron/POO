@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void imprimirMatriz() {
+    int a[10][10];
+    srand(time(NULL));
+    for(int i = 0; i < 10; i++) {
+        for(int j = 0; j < 10; j++) {
+        a[i][j] = rand() % 2;
+        }
+        printf("\n");
+    }
+    
+    
+    for(int i = 0; i < 10; i++) { 
+        for(int j = 0; j < 10; j++) {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void jugar() {
+    
+}
+
+int main() {
+    int a[10][10];
+    imprimirMatriz();
+    return 0;
+}
