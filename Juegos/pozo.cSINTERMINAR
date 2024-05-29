@@ -2,31 +2,71 @@
 #include <stdlib.h>
 #include <time.h>
 
-void imprimirMatriz() {
-    int a[10][10];
-    srand(time(NULL));
-    for(int i = 0; i < 10; i++) {
-        for(int j = 0; j < 10; j++) {
-        a[i][j] = rand() % 2;
-        }
-        printf("\n");
-    }
-    
-    
-    for(int i = 0; i < 10; i++) { 
-        for(int j = 0; j < 10; j++) {
-            printf("%d ", a[i][j]);
+#define FILAS 10
+#define COLUMNAS 10
+
+void imprimirMatriz(int matriz[FILAS][COLUMNAS]) {
+    for (int i = 0; i < FILAS; i++) {
+        for (int j = 0; j < COLUMNAS; j++) {
+            printf("%d ", matriz[i][j]);
         }
         printf("\n");
     }
 }
 
-void jugar() {
-    
+void jugar(int matriz[FILAS][COLUMNAS], int filaInicial, int columnaInicial) {
+    int intentos = 0, movimiento, pf = filaInicial, pc = columnaInicial;
+    matriz[pf][pc] = 7; // Posiciona inicialmente el '7' en (0, 0)
+
+    while (intentos < 50) {
+        imprimirMatriz(matriz);
+        printf("Movimiento %d: elige una dirección (1-Arriba, 2-Abajo, 3-Izquierda, 4-Derecha): ", intentos + 1);
+        scanf("%d", &movimiento);
+
+        int nueva_fila = pf, nueva_columna = pc;
+        switch (movimiento) {
+            case 1: // Arriba
+                if (pf > 0) nueva_fila = pf - 1;
+                break;
+            case 2: // Abajo
+                if (pf < FILAS - 1) nueva_fila = pf + 1;
+                break;
+            case 3: // Izquierda
+                if (pc > 0) nueva_columna = pc - 1;
+                break;
+            case 4: // Derecha
+                if (pc < COLUMNAS - 1) nueva_columna = pc + 1;
+                break;
+            default:
+                printf("Movimiento no válido. Intente de nuevo.\n");
+                continue;
+        }
+
+        //Mueve el '7' y cambiar el lugar anterior a '1'
+        if (nueva_fila != pf || nueva_columna != pc) {
+            matriz[pf][pc] = 1;  
+            pf = nueva_fila;
+            pc = nueva_columna;
+            matriz[pf][pc] = 7;  
+        }
+        intentos++;
+    }
 }
 
 int main() {
-    int a[10][10];
-    imprimirMatriz();
+    int matriz[FILAS][COLUMNAS] = {0};
+    srand(time(NULL));
+    for(int i = 0; i < FILAS; i++) {
+        for(int j = 0; j < COLUMNAS; j++) {
+            matriz[i][j] = rand() % 2;
+            matriz[10][10] = 1;
+        }
+    }
+
+    // Establece la posición inicial del '7' en (0, 0)
+    int filaInicial = 0;
+    int columnaInicial = 0;
+    jugar(matriz, filaInicial, columnaInicial);
+
     return 0;
 }
