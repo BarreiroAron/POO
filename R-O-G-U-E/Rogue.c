@@ -30,7 +30,7 @@ RogueFuncionesTres.c
 */
 
       int main(int argc, char *argv[]) {
-          char jugador = '5';
+          char jugador = '@';
           char mazmorra1[15][15];
           int opcion;
           char nombre[20];
