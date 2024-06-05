@@ -98,6 +98,8 @@ int movimientos(int Nmazmorra, int tamañomazmorra, char mazmorra[tamañomazmorr
         }
 
         if (nuevafila < 0 || nuevafila >= Nmazmorra || nuevacolumna < 0 || nuevacolumna >= Nmazmorra) {
+            limpiar_consola();
+            imprimirMazmorra(tamañomazmorra, mazmorra, fila, columna);
             puts("Movimiento fuera de los límites.");
             continue;
         }
