@@ -1,11 +1,12 @@
 //RogueGame.c 3
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
 #include <termios.h>
 #include "RogueVoids.h"
+
+//#include "miniaudio.h"
 
 #define YELLOW  "\033[1;33m"
 #define RED     "\033[1;31m"
@@ -74,6 +75,7 @@ void opcion5() {
 void mostrarMenu() {
     printf(CYAN"┌───────────────┐\n"RESET);
     printf(CYAN"│ Menú:         │\n"RESET);
+    printf(CYAN"│---------------│\n"RESET);
     printf(CYAN"│ 1. Jugar      │\n"RESET);
     printf(CYAN"│ 2. Reglas     │\n"RESET);
     printf(CYAN"│ 3. Controles  │\n"RESET);
