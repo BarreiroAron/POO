@@ -58,7 +58,7 @@ RogueFuncionesTres.c
                   case 1:
                       limpiar_consola();
                        for (int cargando = 0; cargando <= 100; cargando += 5) {
-                printf("┌─────────────────────────────────┐\n");
+                printf("┌──────────────────────────────────┐\n");
                 printf("│          Cargando:%3d%%           │\n", cargando);
                 printf("│                                  │\n");
                 printf("└──────────────────────────────────┘\n");
@@ -109,7 +109,9 @@ RogueFuncionesTres.c
                        }
                       return 0;
                   default:
+                      limpiar_consola();
                       printf(RED"Opción inválida. Por favor, ingrese una opción válida.\n"RESET);
+                      mostrarMenu();
                       break;
               }
           }
