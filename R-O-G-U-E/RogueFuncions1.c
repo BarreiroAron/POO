@@ -4,11 +4,11 @@
 #include <unistd.h>
 #include <termios.h>
 #include "RogueVoids.h"
-
+#include <locale.h>
 //ESTA PARTE DE LAS FUNCIONES INCLUYEN:
-//1. Limpiar consola: Para limpiar la consola como si fuese un system("clear");
-//2. Bienvenida: Para imprimir el menu donde ubicamos nuestro nombre para el jugador.
-//3. Rellenar mazmorras: Para rellenar las mazmorras con los enemigos y los * respectivos.
+//1. imprimirMazmorra, para que en la consola podamos ver todo el mapa del juego.
+//2. actualizarmazmorra, para que en la consola se vean los cambios que pasan mientras el usuario juega al juego.
+//2. Dos funciones (desactivarModoCanonico, restaurarModoCanonico). Las cuales sirven para que a la hora de moverse con W, A, S, D. No sea necesario el "Enter" para moverse.
 
 #define YELLOW  "\033[1;33m"
 #define RED     "\033[1;31m"
@@ -19,34 +19,23 @@
 #define CYAN    "\033[1;36m"
 #define WHITE   "\033[1;37m"
 
-#define CRAW "\U0001f980"
-
-void limpiar_consola() {
-    printf("\033[H\033[J");
+void imprimirMazmorra(int tamañomazmorra, char dungeon[tamañomazmorra][tamañomazmorra], int fila, int columna) {
+    printf("--------------\n");
+  for (int i = fila - 3; i <= fila + 3; i++) {
+      for (int j = columna - 3; j <= columna + 3; j++) {
+          if (i >= 0 && i < tamañomazmorra && j >= 0 && j < tamañomazmorra) {
+              printf("%c ", dungeon[i][j]);
+      } else {
+              printf("  ");
+          }
+      }
+      printf("\n");
+  }
+printf("--------------\n");
 }
 
-void bienvenida(char nombre[20]) {
-    while (1) {
-        printf(WHITE"                    Bienvenido jugador. Ingrese su nombre: "RESET);
-        scanf("%s", nombre);
-        limpiar_consola();
-        break;
-    }
-}
-
-void rellenarMazmorras(int tamañomazmorra, char dungeon[tamañomazmorra][tamañomazmorra]) {
-    srand(time(NULL));
-    int r;
-    int rango = 10;
-    char enemigos[2] = {'C', 'W'};
-    for (int i = 0; i < tamañomazmorra; i++) {
-        for (int j = 0; j < tamañomazmorra; j++) {
-            r = rand() % 70;
-            if (r > rango) {
-                dungeon[i][j] = '*';
-            } else {
-                dungeon[i][j] = enemigos[rand() % 2];
-            }
-        }
-    }
+void actualizar_mazmorra(int n, char mazmorra[n][n], int fila, int columna, int fila_nueva, int columna_nueva, char *original) {
+  mazmorra[fila][columna] = *original; // Restaurar el valor original
+  *original = mazmorra[fila_nueva][columna_nueva]; // Guardar el valor de la nueva casilla
+  mazmorra[fila_nueva][columna_nueva] = '@'; // Mover al jugador
 }
