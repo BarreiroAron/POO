@@ -24,9 +24,6 @@ void imprimirMazmorra(int tamañomazmorra, char dungeon[tamañomazmorra][tamaño
   for (int i = fila - 3; i <= fila + 3; i++) {
       for (int j = columna - 3; j <= columna + 3; j++) {
           if (i >= 0 && i < tamañomazmorra && j >= 0 && j < tamañomazmorra) {
-             /* if(dungeon[i][j] == 'C') {
-                  dungeon[i][j] = printf(SKULL " ");
-                  } */
               printf("%c ", dungeon[i][j]);
       } else {
               printf("  ");
@@ -41,25 +38,4 @@ void actualizar_mazmorra(int n, char mazmorra[n][n], int fila, int columna, int 
   mazmorra[fila][columna] = *original; // Restaurar el valor original
   *original = mazmorra[fila_nueva][columna_nueva]; // Guardar el valor de la nueva casilla
   mazmorra[fila_nueva][columna_nueva] = '@'; // Mover al jugador
-}
-
-void desactivarModoCanonico(struct termios *old_tio) {
-  struct termios new_tio;
-
-  // Guardar la configuración actual del terminal
-  tcgetattr(STDIN_FILENO, old_tio);
-
-  // Desactivar el modo canónico y el eco
-  new_tio = *old_tio;
-  new_tio.c_lflag &= (~ICANON & ~ECHO);
-  new_tio.c_cc[VMIN] = 1;
-  new_tio.c_cc[VTIME] = 0;
-
-  // Establecer los nuevos atributos
-  tcsetattr(STDIN_FILENO, TCSANOW, &new_tio);
-}
-
-void restaurarModoCanonico(struct termios *old_tio) {
-  // Restaurar los atributos del terminal
-  tcsetattr(STDIN_FILENO, TCSANOW, old_tio);
 }
