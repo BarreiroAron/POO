@@ -2,6 +2,7 @@
       #include <stdlib.h>
       #include <time.h>
       #include <unistd.h>
+      #include <locale.h>
       #define YELLOW  "\033[1;33m"
       #define RED     "\033[1;31m"
       #define BLUE    "\033[1;34m"
@@ -12,37 +13,32 @@
       #define CYAN    "\033[1;36m"
       #define WHITE   "\033[1;37m"
 
-//EN DONDE ESTAN TODAS LAS FUNCIONES DEL JUEGO:
-/* 
-limpiar_consola, bienvenida, rellenarMazmorras.
-        Estan en RogueFuncionsUno.c
-*/
-/*
-    imprimirMazmorra, actualizarmazmorra,
-    desactivarModoCanonico, restaurarModoCanonico,
-    movimientos.
-        Estan en RogueFuncionsDos.c
-*/
-/* 
-los void opciones,2,3,4,5 estan en:
-RogueFuncionesTres.c
-(El opcion1 del swich es un conjunto de funciones)
-*/
+    #define SKULL "\U0001f480"
+
+//Este es el main, tiene un swich el cual tiene las llamadas a funciones.
 
       int main(int argc, char *argv[]) {
+          setlocale(LC_ALL, "");
           char jugador = '@';
-          char mazmorra1[15][15];
+          char mazmorra[50][50];
           int opcion;
           char nombre[20];
-
-          printf(YELLOW"┌───────────────────────────────────────┐\n"RESET);
+        printf(YELLOW"┌───────────────────────────────────────┐\n"RESET);
           printf(YELLOW"│           Juego de Mazmorra           │\n"RESET);
           printf(YELLOW"└───────────────────────────────────────┘\n"RESET);
           bienvenida(nombre);
           limpiar_consola();
           mostrarMenu();
-
+       
           while (1) {
+              setlocale(LC_ALL, "");
+
+              // Imprimir algunos emojis
+              printf("Carita feliz: ☠\n");
+              printf("Corazón: ❤️\n");
+              printf("Estrella: ⭐\n");
+              printf("Cráneo: 💀\n");
+              printf("Araña: 🕷️\n");
               printf(WHITE"Ingrese una opción: "RESET);
               int l = 0;
               if (scanf("%d", &opcion) != 1) {
@@ -65,8 +61,8 @@ RogueFuncionesTres.c
                 usleep(200000); // Pausa de 0.2 segundos
                 limpiar_consola();
               }
-                      rellenarMazmorras(15, mazmorra1, 4);
-                      movimientos(15, 15, mazmorra1, jugador);
+                      rellenarMazmorras(50, mazmorra);
+                      movimientos(50, 50, mazmorra, jugador);
                       limpiar_consola();
                       mostrarMenu();
                       break;
@@ -115,6 +111,5 @@ RogueFuncionesTres.c
                       break;
               }
           }
-
           return 0;
       }
