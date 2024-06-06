@@ -5,6 +5,11 @@
 #include <termios.h>
 #include "RogueVoids.h"
 
+//ESTA PARTE DE LAS FUNCIONES INCLUYEN:
+//1. Limpiar consola: Para limpiar la consola como si fuese un system("clear");
+//2. Bienvenida: Para imprimir el menu donde ubicamos nuestro nombre para el jugador.
+//3. Rellenar mazmorras: Para rellenar las mazmorras con los enemigos y los * respectivos.
+
 #define YELLOW  "\033[1;33m"
 #define RED     "\033[1;31m"
 #define BLUE    "\033[1;34m"
@@ -29,14 +34,15 @@ void bienvenida(char nombre[20]) {
     }
 }
 
-void rellenarMazmorras(int tamañomazmorra, char dungeon[tamañomazmorra][tamañomazmorra], int dificultad) {
+void rellenarMazmorras(int tamañomazmorra, char dungeon[tamañomazmorra][tamañomazmorra]) {
     srand(time(NULL));
     int r;
+    int rango = 10;
     char enemigos[2] = {'C', 'W'};
     for (int i = 0; i < tamañomazmorra; i++) {
         for (int j = 0; j < tamañomazmorra; j++) {
             r = rand() % 70;
-            if (r > dificultad) {
+            if (r > rango) {
                 dungeon[i][j] = '*';
             } else {
                 dungeon[i][j] = enemigos[rand() % 2];
