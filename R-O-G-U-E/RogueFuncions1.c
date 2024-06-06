@@ -27,7 +27,7 @@ void limpiar_consola() {
 
 void bienvenida(char nombre[20]) {
     while (1) {
-        printf(WHITE"Bienvenido jugador. Ingrese su nombre: "RESET);
+        printf(WHITE"                    Bienvenido jugador. Ingrese su nombre: "RESET);
         scanf("%s", nombre);
         limpiar_consola();
         break;
