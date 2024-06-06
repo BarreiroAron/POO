@@ -48,25 +48,59 @@ void opcion2() {
 
 void opcion3() {
     limpiar_consola();
-    printf(MAGENTA"        ┌─────┐               w: moverte hacia arriba\n"RESET);
-    printf(MAGENTA"        │  w  │\n"RESET);
-    printf(MAGENTA"        └─────┘               a: moverte hacia la izquierda\n"RESET);
-    printf(MAGENTA"┌─────┐ ┌─────┐  ┌─────┐\n"RESET);
-    printf(MAGENTA"│  a  │ │  s  │  │  d  │      s: moverte hacia abajo\n"RESET);
-    printf(MAGENTA"└─────┘ └─────┘  └─────┘\n"RESET);
-    printf(MAGENTA"                              d: moverte hacia la derecha\n"RESET);
+    printf(MAGENTA"                            ┌─────┐               w: moverte hacia arriba\n"RESET);
+    printf(MAGENTA"                            │  w  │\n"RESET);
+    printf(MAGENTA"                            └─────┘               a: moverte hacia la izquierda\n"RESET);
+    printf(MAGENTA"                    ┌─────┐ ┌─────┐  ┌─────┐\n"RESET);
+    printf(MAGENTA"                    │  a  │ │  s  │  │  d  │      s: moverte hacia abajo\n"RESET);
+    printf(MAGENTA"                    └─────┘ └─────┘  └─────┘\n"RESET);
+    printf(MAGENTA"                                                  d: moverte hacia la derecha\n"RESET);
      printf(WHITE"Presiona Enter para salir\n"RESET);
     while (getchar() != '\n');
     limpiar_consola();
 }
 
-void opcion4() {
+/*void opcion4() {
     limpiar_consola();
-    printf(RED"b: Tiene x cantidad de vida. Te quita x cantidad de vida\n"RESET);
-    printf(RED"b: Tiene x cantidad de vida. Te quita x cantidad de vida\n"RESET);
+    printf(RED"Skull: Tiene x cantidad de vida. Te quita x cantidad de vida\n"RESET);
+    cargarImagen("skull.txt");
+
+    printf(RED"Warrior: Tiene x cantidad de vida. Te quita x cantidad de vida\n"RESET);
+    cargarImagen("warrior.txt");
+            
      printf(WHITE"Presiona Enter para salir\n"RESET);
     while (getchar() != '\n');
     limpiar_consola();
+}*/
+void opcion4() {
+    struct termios old_tio;
+    desactivarModoCanonico(&old_tio);
+    limpiar_consola();
+    char tecla;
+
+    printf(RED"Skull: Tiene x cantidad de vida. Te quita x cantidad de vida\n"RESET);
+    printf(RED"Warrior: Tiene x cantidad de vida. Te quita x cantidad de vida\n"RESET);
+    printf(WHITE"Presiona 'S' para ver a Skull y 'W' para ver a Warrior.\n"RESET);
+    printf(RED"'Esc' para salir\n"RESET);
+
+    while (1) {
+        tecla = getchar();
+        if (tecla == 'S' || tecla == 's') {
+            limpiar_consola();
+            cargarImagen("skull.txt");
+            puts("");
+            printf(RED"'Esc' para salir\n"RESET);
+        } else if (tecla == 'W' || tecla == 'w') {
+            limpiar_consola();
+            cargarImagen("warrior.txt");
+            puts("");
+            printf(RED"'Esc' para salir\n"RESET);
+        } else if (tecla == 27) {
+            limpiar_consola();
+            break;
+        }
+    }
+     restaurarModoCanonico(&old_tio);
 }
 
 void opcion5() {
@@ -79,16 +113,19 @@ void opcion5() {
 }
 
 void mostrarMenu() {
-    char nombreArchivo[] = "ROGUESONGCUBECAVERN.mp3"; // Cambia esto por la ruta de tu archivo de música
-    reproducirMusica(nombreArchivo);
-    printf(CYAN"┌───────────────┐\n"RESET);
-    printf(CYAN"│ Menú:         │\n"RESET);
-    printf(CYAN"│---------------│\n"RESET);
-    printf(CYAN"│ 1. Jugar      │\n"RESET);
-    printf(CYAN"│ 2. Reglas     │\n"RESET);
-    printf(CYAN"│ 3. Controles  │\n"RESET);
-    printf(CYAN"│ 4. Enemigos   │\n"RESET);
-    printf(CYAN"│ 5. Items      │\n"RESET);
-    printf(CYAN"│ 6. Salir      │\n"RESET);
-    printf(CYAN"└───────────────┘\n"RESET);   
+    //char nombreArchivo[] = "ROGUESONGCUBECAVERN.mp3"; // Cambia esto por la ruta de tu archivo de música
+    //reproducirMusica(nombreArchivo);
+
+    cargarImagen("ROGUE.txt");
+    puts("");
+    printf(CYAN"                                        ┌───────────────┐\n"RESET);
+    printf(CYAN"                                        │ Menú:         │\n"RESET);
+    printf(CYAN"                                        │---------------│\n"RESET);
+    printf(CYAN"                                        │ 1. Jugar      │\n"RESET);
+    printf(CYAN"                                        │ 2. Reglas     │\n"RESET);
+    printf(CYAN"                                        │ 3. Controles  │\n"RESET);
+    printf(CYAN"                                        │ 4. Enemigos   │\n"RESET);
+    printf(CYAN"                                        │ 5. Items      │\n"RESET);
+    printf(CYAN"                                        │ 6. Salir      │\n"RESET);
+    printf(CYAN"                                        └───────────────┘\n"RESET);   
 }
