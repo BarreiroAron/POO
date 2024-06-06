@@ -23,9 +23,9 @@
           char mazmorra[50][50];
           int opcion;
           char nombre[20];
-        printf(YELLOW"┌───────────────────────────────────────┐\n"RESET);
-          printf(YELLOW"│           Juego de Mazmorra           │\n"RESET);
-          printf(YELLOW"└───────────────────────────────────────┘\n"RESET);
+          printf(YELLOW"                    ┌───────────────────────────────────────┐\n"RESET);
+          printf(YELLOW"                    │           R   O   G   U   E           │\n"RESET);
+          printf(YELLOW"                    └───────────────────────────────────────┘\n"RESET);
           bienvenida(nombre);
           limpiar_consola();
           mostrarMenu();
